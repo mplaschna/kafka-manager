@@ -6,7 +6,8 @@
 # ~~~~
 
 # Home page
-GET         /                                             controllers.Application.index
+GET         /                                             @controllers.Application.index
+GET         /heartbeat                                    @controllers.HealthCheckController.heartbeat
 GET         /clusters/:c                                  controllers.Cluster.cluster(c:String)
 GET         /clusters/:c/topics                           controllers.Topic.topics(c:String)
 GET         /clusters/:c/topics/addPartitions             controllers.Topic.addPartitionsToMultipleTopics(c:String)
@@ -61,3 +62,5 @@ GET         /assets/*file           controllers.Assets.at(path="/public", file)
 
 # WebJars
 GET         /webjars/*file          controllers.WebJarAssets.at(file)
+
+GET         /oauth-callback                               @controllers.OAuth2Controller.callback

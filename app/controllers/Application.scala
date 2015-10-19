@@ -5,14 +5,15 @@
 
 package controllers
 
+import javax.inject.{Singleton, _}
 import features.ApplicationFeatures
-import kafka.manager.features.ClusterFeatures
 import play.api.mvc._
 
 /**
  * @author hiral
  */
-object Application extends Controller {
+@Singleton
+class Application extends Controller {
 
   import play.api.libs.concurrent.Execution.Implicits.defaultContext
 

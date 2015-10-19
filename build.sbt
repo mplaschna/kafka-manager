@@ -18,10 +18,14 @@ assemblyMergeStrategy in assembly := {
 }
 
 libraryDependencies ++= Seq(
+cache,
+specs2 % Test,
+ws,
+  filters,
   "com.typesafe.akka" %% "akka-actor" % "2.3.10",
   "com.google.code.findbugs" % "jsr305" % "2.0.1",
-  "org.webjars" %% "webjars-play" % "2.3.0-2",
-  "org.webjars" % "bootstrap" % "3.3.4",
+  "org.webjars" %% "webjars-play" % "2.4.0-1",
+  "org.webjars" % "bootstrap" % "3.3.5",
   "org.webjars" % "jquery" % "2.1.4",
   "org.webjars" % "backbonejs" % "1.1.2-4",
   "org.webjars" % "underscorejs" % "1.8.3",
@@ -34,7 +38,14 @@ libraryDependencies ++= Seq(
   "com.adrianhurt" %% "play-bootstrap3" % "0.4",
   "org.apache.kafka" %% "kafka" % "0.8.2.1" exclude("log4j","log4j") force(),
   "org.scalatest" %% "scalatest" % "2.2.1" % "test",
-  "org.apache.curator" % "curator-test" % "2.7.1" % "test" force()
+  "org.apache.curator" % "curator-test" % "2.7.1" % "test" force(),
+  "com.google.inject" % "guice" % "4.0",
+  "com.tzavellas" % "sse-guice" % "0.7.1",
+  "com.typesafe.slick" %% "slick" % "3.0.0",
+  "com.github.tminglei" %% "slick-pg" % "0.9.0",
+  "org.webjars"  % "jquery"       % "2.1.4",
+  "org.webjars"  % "jquery-ui"    % "1.11.4",
+  "com.zaxxer" % "HikariCP-java6" % "2.3.3"
 )
 
 net.virtualvoid.sbt.graph.Plugin.graphSettings
@@ -83,5 +94,8 @@ rpmLicense := Some("Apache")
 /* End RPM Settings */
 
 
+/*routesGenerator := InjectedRoutesGenerator*/
 
 
+
+fork in run := true
